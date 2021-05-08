@@ -1,5 +1,5 @@
-require_relative 'load'
-require_relative 'view'
+require_relative '../models/load'
+require_relative '../view/view'
 
 class Controller
   def initialize

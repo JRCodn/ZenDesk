@@ -1,5 +1,5 @@
-require_relative 'controller'
-require_relative 'view'
+require_relative 'controller/controller'
+require_relative 'view/view'
 class Router
 
   def initialize(ticket_controller)
@@ -9,8 +9,10 @@ class Router
   end
 
   def run
+    print `clear`
+    action = nil
     while @running
-      @ticket_con.all
+      @ticket_con.all if action != 1
       action = list_menu
       print `clear`
       route_list_menu(action)
@@ -37,7 +39,7 @@ class Router
     when 1 then @ticket_con.find
     when 2 then @ticket_con.next_page
     when 3 then @ticket_con.prev_page
-    when 4 then @ticket_con.all
+    when 5 then stop
     end
   end
 end

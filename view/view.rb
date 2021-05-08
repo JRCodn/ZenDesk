@@ -12,10 +12,11 @@ class View
 
   def display_ticket(ticket)
     print `clear`
-    puts "#{ticket[:id]} - #{ticket[:subject]}"
+    puts "#{ticket[:id]} - #{ticket[:subject]}".center(100)
     puts "#{ticket[:description]}"
     puts ""
-    puts "Created by: #{ticket[:submitter_id]} at #{convert(ticket[:created_at])}"
+    puts "Created by: #{ticket[:submitter_id]} at #{convert(ticket[:created_at])}".center(100)
+
     puts ""
   end
 
@@ -32,6 +33,7 @@ class View
 
   def id_error
     puts "Sorry there was an error with that id".center(100)
+    puts ""
   end
 
   def convert(time)
