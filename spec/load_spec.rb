@@ -1,19 +1,5 @@
 require 'rspec'
-
-begin
-  require_relative "../models/load"
-rescue LoadError => e
-  if e.message =~ /loadd/
-    describe "Load" do
-      it "No load model" do
-        fail
-      end
-    end
-  else
-    raise e
-  end
-end
-
+require_relative "../models/load"
 
 describe "Load" do
   it "Check load class initializes @page as a hash" do

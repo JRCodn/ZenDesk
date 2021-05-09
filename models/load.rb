@@ -2,21 +2,24 @@ require 'rest-client'
 require 'json'
 
 class Load
-  attr_reader :page
+  attr_reader :page, :api_error
   def initialize
     @url = "https://jrcodn.zendesk.com/api/v2/tickets.json?per_page=25"
+    @api_error = nil
     @page = info(@url)
   end
 
   def info(url)
-    res = RestClient::Request.execute method: :get,
-                                      url: url,
-                                      user: 'jaylreidy21@gmail.com',
-                                      password: 'jrcodn321',
-                                      headers: {"Content-Type" => "application/json"}
-    JSON.parse(res, :symbolize_names => true)
-    rescue RestClient::ExceptionWithResponse => err
-    err
+    rest = RestClient::Request.execute(
+          method: :get,
+          url: url,
+          user: 'jaylreidy1@gmail.com',
+          password: 'jrcodn321',
+          headers: {"Content-Type" => "application/json"}
+          )
+    JSON.parse(rest, :symbolize_names => true)
+    rescue RestClient::Exception
+    "Sorry something went wrong with the API"
   end
 
   def next_page
@@ -33,8 +36,3 @@ class Load
     @view.id_error
   end
 end
-
-# c = Load.new
-
-# p c.page
-# p c.next_page

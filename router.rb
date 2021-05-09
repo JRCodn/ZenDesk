@@ -44,24 +44,6 @@ class Router
   end
 end
 
-  # def ticket_view
-  #   puts "Please choose what you'd like to do"
-  #   puts '1 - Find a ticket by ID'
-  #   puts '2 - List tickets'
-  #   puts '3 - Stop'
-  #   print '> '
-  #   gets.chomp.to_i
-  # end
-
-#   def route_ticket_view(action)
-#     case action
-#     when 1 then @ticket_con.find
-#     when 2 then @ticket_con.all
-#     when 3 then stop
-#     end
-#   end
-# end
-
 klass = Controller.new
 
 router = Router.new(klass)

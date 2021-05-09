@@ -1,13 +1,14 @@
 class View
   def display_tickets(tickets)
-    tickets[:tickets].each do |ticket|
-      puts "ID: #{ticket[:id]} - #{ticket[:subject]} "\
-      "|Last update: #{convert(ticket[:created_at])}| "\
-      "|Created by: #{ticket[:submitter_id]}]|"
+    printf(" %3s %-55s %-20s %s\n",
+           "ID", "Subject".center(50), "Created at", "Created by"
+           )
+    tickets[:tickets].each do |t|
+      printf("|%3s| %-50s | %-20s | %s |\n",
+            t[:id], "#{t[:subject].center(50)}", "#{convert(t[:created_at])} |", t[:submitter_id]
+            )
     end
     puts ""
-  rescue
-    puts "Sorry there may be an error with the API"
   end
 
   def display_ticket(ticket)
@@ -16,7 +17,6 @@ class View
     puts "#{ticket[:description]}"
     puts ""
     puts "Created by: #{ticket[:submitter_id]} at #{convert(ticket[:created_at])}".center(100)
-
     puts ""
   end
 
@@ -33,6 +33,11 @@ class View
 
   def id_error
     puts "Sorry there was an error with that id".center(100)
+    puts ""
+  end
+
+  def error(error)
+    puts "#{error}".center(50)
     puts ""
   end
 

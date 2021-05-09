@@ -2,13 +2,19 @@ require_relative '../models/load'
 require_relative '../view/view'
 
 class Controller
+  attr_reader :load
   def initialize
     @load = Load.new
     @view = View.new
   end
 
   def all
-    @view.display_tickets(@load.page)
+    # if @load.api_error.nil?
+      @view.display_tickets(@load.page)
+    # else
+  rescue
+      @view.error(@load.page)
+    # end
   end
 
   def find
