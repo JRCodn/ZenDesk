@@ -4,7 +4,7 @@ require_relative "../models/load"
 load_page = Load.new
 
 describe "Load" do
-  it "Check load class initializes @page as a hash" do
+  it "Load class Load" do
     expect(load_page).to be_a Load
   end
 

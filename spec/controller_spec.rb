@@ -1,12 +1,10 @@
 require 'rspec'
 require_relative "../controller/controller"
-require_relative "../view/view"
 
-view = View.new
 load_con = Controller.new
 
 describe "Controller" do
-  it "Checks if Controller class works" do
+  it "Load class Controller" do
     expect(load_con).to be_a Controller
   end
 
