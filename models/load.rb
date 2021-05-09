@@ -2,7 +2,8 @@ require 'rest-client'
 require 'json'
 
 class Load
-  attr_reader :page, :api_error
+  attr_reader :api_error, :url
+  attr_accessor :page
   def initialize
     @url = "https://jrcodn.zendesk.com/api/v2/tickets.json?per_page=25"
     @api_error = nil
@@ -13,7 +14,7 @@ class Load
     rest = RestClient::Request.execute(
           method: :get,
           url: url,
-          user: 'jaylreidy1@gmail.com',
+          user: 'jaylreidy21@gmail.com',
           password: 'jrcodn321',
           headers: {"Content-Type" => "application/json"}
           )

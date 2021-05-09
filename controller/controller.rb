@@ -9,12 +9,9 @@ class Controller
   end
 
   def all
-    # if @load.api_error.nil?
       @view.display_tickets(@load.page)
-    # else
   rescue
       @view.error(@load.page)
-    # end
   end
 
   def find
