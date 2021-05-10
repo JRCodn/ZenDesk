@@ -1,5 +1,5 @@
-require_relative 'controller/controller'
 require_relative 'view/view'
+
 class Router
 
   def initialize(ticket_controller)
@@ -43,8 +43,3 @@ class Router
     end
   end
 end
-
-klass = Controller.new
-
-router = Router.new(klass)
-router.run

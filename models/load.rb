@@ -1,5 +1,7 @@
 require 'rest-client'
 require 'json'
+require 'dotenv'
+Dotenv.load('./.env')
 
 class Load
   attr_reader :api_error, :url
@@ -15,7 +17,7 @@ class Load
           method: :get,
           url: url,
           user: 'jaylreidy21@gmail.com',
-          password: 'jrcodn321',
+          password: ${{ secrets.API_KEY }},
           headers: {"Content-Type" => "application/json"}
           )
     JSON.parse(rest, :symbolize_names => true)

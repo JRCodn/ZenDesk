@@ -9,9 +9,9 @@ class Controller
   end
 
   def all
-      @view.display_tickets(@load.page)
+    @view.display_tickets(@load.page)
   rescue
-      @view.error(@load.page)
+    @view.error(@load.page)
   end
 
   def find

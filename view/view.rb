@@ -1,12 +1,17 @@
 class View
   def display_tickets(tickets)
+    puts "Zendesk Ticket Viewer".center(100)
     printf(" %3s %-55s %-20s %s\n",
-           "ID", "Subject".center(50), "Created at", "Created by"
-           )
+          "ID", "Subject".center(50), "Created at", "Created by"
+    )
+    puts ""
     tickets[:tickets].each do |t|
       printf("|%3s| %-50s | %-20s | %s |\n",
-            t[:id], "#{t[:subject].center(50)}", "#{convert(t[:created_at])} |", t[:submitter_id]
-            )
+            t[:id],
+            "#{t[:subject].center(50)}",
+            "#{convert(t[:created_at])} |",
+            t[:submitter_id]
+    )
     end
     puts ""
   end
