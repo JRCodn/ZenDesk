@@ -38,4 +38,8 @@ class Load
   rescue
     @view.id_error
   end
+
+  def fake_method
+    "does nothing"
+  end
 end
