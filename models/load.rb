@@ -17,7 +17,7 @@ class Load
           method: :get,
           url: url,
           user: 'jaylreidy21@gmail.com',
-          password: ${{ secrets.API_KEY }},
+          password: ENV['API_KEY'],
           headers: {"Content-Type" => "application/json"}
           )
     JSON.parse(rest, :symbolize_names => true)
