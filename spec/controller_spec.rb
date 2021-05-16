@@ -9,7 +9,7 @@ describe "Controller" do
   end
 
   describe "#all"
-  it "Prints tickets with an ID" do
+  it "Prints tickets with a time stamp" do
     expect do
       load_con.all
       end.to output(/\d{2}:\d{2}/).to_stdout
