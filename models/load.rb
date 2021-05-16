@@ -17,7 +17,7 @@ class Load
     rest = RestClient::Request.execute(
           method: :get,
           url: url,
-          user: 'jaylreidy21@gmail.com',
+          user: ENV['USER'],
           password: ENV['KEY'],
           headers: {"Content-Type" => "application/json"}
           )
